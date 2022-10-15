@@ -3,13 +3,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Project/Maven2/JavaApp/src/main/java/${packagePath}/${mainClassName}.java to edit this template
  */
 
-package com.mycompany.login;
+package com.mycompany.lms_register;
 
 /**
  *
  * @author Divyam
  */
-public class Login {
+public class LMS_REGISTER {
 
     public static void main(String[] args) {
         System.out.println("Hello World!");
