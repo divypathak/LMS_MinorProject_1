@@ -9,6 +9,7 @@ package My_classes;
  * @author Divyam
  */
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -91,6 +92,72 @@ public class Genre {
         }
        
     }
+       
+       
+       
+       
+        public void removeGenre(int _id)
+    {   
+        String editQuery = "DELETE FROM `book_genres` WHERE `id` = ?";
+        
+        try {
+            PreparedStatement ps = DB.getConnection().prepareStatement(editQuery);
+            
+            
+            ps.setInt(1, _id);
+            
+            
+            if(ps.executeUpdate() != 0)
+            {
+                JOptionPane.showMessageDialog(null, "Genre Deleted", "remove", 1);
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(null, "Genre Not Deleted", "remove", 2);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Genre.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        
+       
+       
+    }
+        
+         //function to populate an arrayList with genres
+        
+        public ArrayList<Genre> genreList()
+        {
+            ArrayList<Genre> gList= new ArrayList<>();
+            
+            
+             My_classes.Func_Class func= new Func_Class();
+            
+            try {
+            ResultSet rs=func.getData("SELECT * FROM `book_genres`");
+            
+             Genre genre;
+             
+             while(rs.next())
+             {
+                 genre= new Genre(rs.getInt("id"),rs.getString("name"));
+                 gList.add(genre);
+             }
+             
+            
+            
+            
+            
+            
+           
+        }
+            catch (SQLException ex) {
+            Logger.getLogger(Genre.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            return gList;
+            
+        }
     
 
 }

@@ -18,8 +18,8 @@ public class DB {
       private static String servername="localhost";
     private static String username="root"; 
     private static String dbname="java_library_system";
-    private static Integer portNumber=3306;
-    private static String password="";
+    private static Integer portNumber=3307;
+    private static String password="sql";
     
     
     // create a function to create and return the connection
